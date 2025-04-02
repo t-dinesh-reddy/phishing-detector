@@ -1,79 +1,157 @@
-# 📧 AI-Powered Phishing Email Detector
+# 📧 AI-Powered Phishing Email Detector with Gmail Integration
 
-This project is a **Streamlit web app** that uses **machine learning** to detect whether an email is a phishing attempt or a legitimate message. It was built to demonstrate the use of AI in cybersecurity through natural language processing and classification models.
+This project is a **Streamlit web app** that uses **machine learning** to detect whether an email is a phishing attempt or legitimate. It now supports **real-time Gmail inbox integration** to automatically scan unread emails for threats using AI.
 
 ---
 
 ## 🚀 Features
 
 - 🔍 Classifies emails as **phishing** or **legitimate**
-- 📊 Displays **confidence score** of the prediction
-- 🌐 Easy-to-use **Streamlit web interface**
-- 🧠 Trained using **TF-IDF + Naive Bayes** classifier
-- ✅ Lightweight and quick to test locally
+- 📊 Displays **confidence score** for predictions
+- 📥 Connects to your **Gmail inbox using IMAP**
+- ⚠️ Checks **unread emails** for phishing content
+- ✅ Simple and fast Streamlit UI
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python**
-- **Scikit-learn** for machine learning
-- **NLTK** for natural language processing
-- **Streamlit** for the web UI
-- **pandas, numpy, joblib** for data handling and model saving
+- Python
+- Streamlit
+- scikit-learn
+- pandas, numpy, nltk
+- IMAP (via `imaplib`)
+- `python-dotenv` for secure email credentials
 
 ---
 
 ## 📂 Project Structure
 
+```
 phishing-detector/
 │
-├── app.py                  # Your Streamlit app
-├── emails.csv              # Dataset (optional for training)
+├── app.py                  # Streamlit UI
+├── train_model.py          # ML training script
+├── email_reader.py         # Gmail email fetch and analysis
 ├── phishing_model.pkl      # Trained ML model
-├── train_model.py          # Script used to train the model
-├── requirements.txt        # Python dependencies
-└── README.md               # Project overview
+├── emails.csv              # Sample dataset (optional)
+├── .env                    # Stores Gmail credentials (not committed)
+├── requirements.txt        # Dependencies
+└── README.md               # Documentation
+```
 
 ---
 
-## 💻 How to Clone and Run Locally
+## 💻 Local Setup Instructions
 
 ### ✅ Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/t-dinesh-reddy/phishing-detector.git
+git clone https://github.com/YOUR-USERNAME/phishing-detector.git
 cd phishing-detector
+```
 
 ---
 
-✅ Step 2: Set Up the Environment
-If you’re using a virtual environment (recommended):
+### ✅ Step 2: Create a Virtual Environment (Recommended)
+
+```bash
 python -m venv venv
-source venv/bin/activate         # On Windows: venv\Scripts\activate
+source venv/bin/activate    # Windows: venv\Scripts\activate
+```
 
 ---
 
-✅ Step 3: Install Dependencies
+### ✅ Step 3: Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
-✅ Step 4: Run the Streamlit App
+### ✅ Step 4: Set Up Gmail App Password
+
+> Gmail requires you to use **App Passwords** for IMAP access.
+
+1. Go to [https://myaccount.google.com/security](https://myaccount.google.com/security)
+2. Enable **2-Step Verification**
+3. Generate a new **App Password** under “App passwords”
+4. Choose “Mail” > “Other” and name it `Phishing Detector`
+5. Copy the 16-character password Google provides
+
+---
+
+### ✅ Step 5: Create a `.env` File
+
+Create a file named `.env` in the root folder with:
+
+```
+EMAIL=your-email@gmail.com
+EMAIL_PASS=your-16-char-app-password
+```
+
+> **Never share this file or push it to GitHub!**
+
+---
+
+### ✅ Step 6: Run the App
+
+```bash
 streamlit run app.py
-The app will open automatically in your browser at http://localhost:8501
+```
+
+The app will open in your browser at:  
+`http://localhost:8501`
 
 ---
 
-📌 Notes
-The initial model is basic and trained on a small dataset. For production use, train it with a larger phishing email dataset.
-You can enhance the model using advanced NLP models (e.g., BERT).
-Extend it with features like file upload for .eml, spam logging, or suspicious keyword highlighting.
+## 🌐 Optional: Deploy to Streamlit Cloud
+
+1. Push your project to a **public GitHub repo**
+2. Go to [https://share.streamlit.io](https://share.streamlit.io)
+3. Link your GitHub account and select the repo
+4. Deploy `app.py` as the entry point
+5. **Use Streamlit secrets** to store `EMAIL` and `EMAIL_PASS` instead of `.env`
+
+In `.streamlit/secrets.toml`:
+
+```toml
+EMAIL = "your-email@gmail.com"
+EMAIL_PASS = "your-app-password"
+```
+
+In code:
+
+```python
+import streamlit as st
+EMAIL = st.secrets["EMAIL"]
+PASSWORD = st.secrets["EMAIL_PASS"]
+```
 
 ---
 
-🙌 Contributing
-Pull requests are welcome! If you'd like to improve the model, UI, or add features, feel free to fork the repo and open a PR.
+## 🧠 Notes
+
+- Basic model trained with Naive Bayes and TF-IDF
+- Easily extendable to use advanced NLP (e.g., BERT)
+- Add logging, database storage, or real-time alerts
 
 ---
 
+## 🙌 Contributing
+
+Pull requests are welcome! Fork the repo, make changes, and submit a PR.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 📬 Contact
+
+Created by [Your Name](https://github.com/YOUR-USERNAME)  
+For questions, collaborations, or feature requests, feel free to reach out.
