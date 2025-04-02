@@ -47,7 +47,7 @@ cd phishing-detector
 
 ---
 
-✅ Step 2: Set Up the Environment
+### ✅ Step 2: Set Up the Environment
 If you’re using a virtual environment (recommended):
 ```bash
 python -m venv venv
@@ -55,13 +55,13 @@ source venv/bin/activate         # On Windows: venv\Scripts\activate
 
 ---
 
-✅ Step 3: Install Dependencies
+### ✅ Step 3: Install Dependencies
 ```bash
 pip install -r requirements.txt
 
 ---
 
-✅ Step 4: Run the Streamlit App
+### ✅ Step 4: Run the Streamlit App
 ```bash
 streamlit run app.py
 The app will open automatically in your browser at http://localhost:8501
