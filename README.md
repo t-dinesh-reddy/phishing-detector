@@ -152,5 +152,5 @@ This project is licensed under the MIT License.
 
 ## 📬 Contact
 
-Created by [Your Name](https://github.com/YOUR-USERNAME)  
+Created by [Your Name](https://github.com/t-dinesh-reddy)  
 For questions, collaborations, or feature requests, feel free to reach out.
