@@ -7,7 +7,6 @@ This project is a **Streamlit web app** that uses **machine learning** to detect
 ## 🚀 Features
 
 - 🔍 Classifies emails as **phishing** or **legitimate**
-- 📊 Displays **confidence score** for predictions
 - 📥 Connects to your **Gmail inbox using IMAP**
 - ⚠️ Checks **unread emails** for phishing content
 - ✅ Simple and fast Streamlit UI
@@ -47,7 +46,7 @@ phishing-detector/
 ### ✅ Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/phishing-detector.git
+git clone https://github.com/t-dinesh-reddy/phishing-detector.git
 cd phishing-detector
 ```
 
