@@ -46,6 +46,7 @@ git clone https://github.com/t-dinesh-reddy/phishing-detector.git
 cd phishing-detector
 
 ---
+## 💻 How to Clone and Run Locally
 
 ### ✅ Step 2: Set Up the Environment
 If you’re using a virtual environment (recommended):
